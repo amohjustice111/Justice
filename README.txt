@@ -1,27 +1,23 @@
-AMOH JUSTICE website — quick start
+AMOH JUSTICE DIGITAL WEBSITE
 
-FILES
-- index.html: page content
-- style.css: luxury black-and-gold design and responsive layout
-- script.js: mobile navigation, demo login modal, and contact form behavior
+Included files:
+- index.html — website content
+- style.css — responsive black-and-gold design
+- script.js — menu, service selection, tutorial prompts, contact form
+- website-preview.png — the generated AMOH JUSTICE website concept image used on the page
 
-PREVIEW
-Open index.html in Chrome or Edge.
+PUBLISH WITH VERCEL:
+1. Upload these files to a GitHub repository (keep them together in the root).
+2. In Vercel choose Add New -> Project and import that repository.
+3. For this static HTML site, no build command is needed. Deploy from the repository root.
 
-PUBLISH FOR FREE
-Option 1 — Netlify:
-1. Go to https://app.netlify.com/drop
-2. Sign in if asked.
-3. Drag the unzipped folder (the folder containing index.html) onto the page.
-4. Wait for deployment and open the URL Netlify gives you.
+EASIER OPTION — NETLIFY:
+1. Extract this ZIP.
+2. Go to https://app.netlify.com/drop and sign in if prompted.
+3. Drag the extracted folder containing index.html into the drop area.
 
-Option 2 — GitHub Pages:
-1. Create a GitHub repository.
-2. Upload index.html, style.css, and script.js to the repository root.
-3. Open Settings → Pages, choose Deploy from a branch, select main and /(root), then Save.
-
-IMPORTANT
-- The login popup is a visual demo, NOT secure user accounts. Do not collect real passwords with it.
-- The contact form currently tries to open the visitor's email app. Replace YOUR-EMAIL@example.com in script.js with your real business email. For online form submissions, connect a form service such as Formspree.
-- Update the sample service descriptions and any contact information to match your real business.
-- Add your real logo by editing index.html, if desired. The current AJ monogram is text-based so the site works without image files.
+BEFORE PUBLISHING:
+- In script.js replace YOUR-EMAIL@example.com with your real business email. The form opens the visitor's email application; it does not save enquiries online.
+- The website image is included locally, so it does not need an external image URL.
+- Tutorial buttons are placeholders until you add real lessons or video links.
+- This website describes your services; it does not yet include an actual AI video generation engine, customer accounts, or online payment processing. Those require additional integrations.

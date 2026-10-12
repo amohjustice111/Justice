@@ -1,37 +1,9 @@
-const menuToggle = document.getElementById('menuToggle');
-const nav = document.getElementById('nav');
-menuToggle.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-});
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
-}));
-
-document.getElementById('year').textContent = new Date().getFullYear();
-const modal = document.getElementById('loginModal');
-document.getElementById('openLogin').addEventListener('click', () => {
-  modal.hidden = false;
-  document.getElementById('loginEmail').focus();
-});
-document.getElementById('closeLogin').addEventListener('click', () => modal.hidden = true);
-modal.addEventListener('click', event => { if (event.target === modal) modal.hidden = true; });
-document.addEventListener('keydown', event => { if (event.key === 'Escape') modal.hidden = true; });
-
-document.getElementById('loginForm').addEventListener('submit', event => {
-  event.preventDefault();
-  document.getElementById('loginNotice').textContent =
-    'Demo only: this form is not connected to a real account system. Add secure authentication before launch.';
-});
-
-document.getElementById('contactForm').addEventListener('submit', event => {
-  event.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const subject = encodeURIComponent('AMOH JUSTICE website enquiry from ' + name);
-  const body = encodeURIComponent('Name: ' + name + '\\nEmail: ' + email + '\\n\\nMessage:\\n' + message);
-  // Replace this placeholder with your preferred business email address.
-  window.location.href = 'mailto:YOUR-EMAIL@example.com?subject=' + subject + '&body=' + body;
-});
+const nav=document.getElementById('nav');
+document.getElementById('menu').addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+const toast=document.getElementById('toast');let toastTimer;
+function showToast(t){toast.textContent=t;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),4000)}
+document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>document.getElementById('serviceSelect').value=a.dataset.service));
+document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>showToast('Selected tutorial topic: '+b.dataset.topic+'. Add your lesson or video link here when ready.')));
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim(),service=document.getElementById('serviceSelect').value,message=document.getElementById('message').value.trim();const subject=encodeURIComponent('AMOH JUSTICE enquiry — '+service);const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nService: '+service+'\n\nProject details:\n'+message);window.location.href='mailto:YOUR-EMAIL@example.com?subject='+subject+'&body='+body;});
